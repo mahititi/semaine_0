@@ -1,3 +1,4 @@
 class Category < ApplicationRecord
-   has_many :through items
-end
+   has_many :items, through: :category
+
+  end
