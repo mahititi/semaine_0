@@ -15,7 +15,7 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
-    describe 'Model instantiation' do
+  describe 'Model instantiation' do
     subject(:new_item) { described_class.new }
 
     describe 'Database' do
@@ -26,7 +26,7 @@ RSpec.describe Item, type: :model do
       it { is_expected.to have_db_column(:has_discount).of_type(:boolean).to eq(false) }
       it { is_expected.to have_db_column(:discount_percentage).of_type(:integer).to eq 0 }
     end
-     end
+  end
 
   describe 'Price' do
     context 'when the item has a discount' do

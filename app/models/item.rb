@@ -13,9 +13,9 @@
 #
 
 class Item < ApplicationRecord
-   has_and_belongs_to_many :discount_percentage
-   belongs_to :original_price
-   has_and_belongs_to_many :has_discount
+  has_many :through :discount_percentage
+  belongs_to :original_price
+  has_many :through :has_discount
 
   def price
     item = Item.first
@@ -23,5 +23,5 @@ class Item < ApplicationRecord
   end
   def average_price
     Item.average_price
-  end 
+  end
 end
