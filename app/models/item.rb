@@ -22,6 +22,6 @@ class Item < ApplicationRecord
     item.price
   end
   def average_price
-    self.average_price
-  end
+    Item.average_price
+  end 
 end

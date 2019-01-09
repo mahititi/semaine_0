@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Prix de départ:</strong>
+  <%= @item.original_price %>
+</p>
+
+<p>
+  <strong>Pourcentage de remise:</strong>
+  <%= @item.has_discount %>
+</p>
+
+<p>
+  <strong>Prix:</strong>
+  <%= @item.discount_percentage %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

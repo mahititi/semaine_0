@@ -17,8 +17,23 @@
 									<th></th>
 								</tr>
 							</thead>
+
+
 							<tbody>
+    <% @item.each do |item| %>
+      <tr>
+        <td><%= item.discount_percentage %></td>
+        <td><%= item.original_price %></td>
+        <td><%= item.has_discount%></td>
+        <td><%= link_to 'Show', item %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
 							</tbody>
+
+							<%= link_to 'New item', new_item_path %>
+
 						</table>
 					</div>
 				</div>
