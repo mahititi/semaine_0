@@ -32,13 +32,10 @@ class Item < ApplicationRecord
   #  end
   #  price < 0 ? 0 : price
   #  end
-  def discount(_has_discount)
-    discount = (original_price - ((original_price / 100) * discount_percentage))
-  end
-
-  def price
-    item = Item .first
-    item.price
+  def price(_has_discount)
+    # item = Item.first
+    # item.price
+    price = (original_price - ((original_price / 100) * discount_percentage))
   end
 
   def self.average_price; end
