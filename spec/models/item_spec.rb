@@ -10,6 +10,7 @@
 #  discount_percentage :integer          default(0)
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
+#  name                :string
 #
 
 require 'rails_helper'
@@ -30,7 +31,7 @@ RSpec.describe Item, type: :model do
 
   describe 'Price' do
     context 'when the item has a discount' do
-      let(:item) { build(:item_with_discount, original_price: false, discount_percentage: 0) }
+      let(:item) { build(:item_with_discount, original_price_id: false, discount_percentage: 0) }
 
       it { expect(item.price).to eq(average_price) }
     end

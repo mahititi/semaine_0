@@ -10,6 +10,7 @@
 #  discount_percentage :integer          default(0)
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
+#  name                :string
 #
 
 class Item < ApplicationRecord
@@ -17,12 +18,28 @@ class Item < ApplicationRecord
   belongs_to :original_price
   has_many :has_discount, through: :average_price
 
+  # def price
+  #  apply_discount(original_price)
+  #  end
+
+  # def apply_discount(price)
+  #  return price if discount_percentage.nil?
+
+  #  if discount_percentage.percentage.present?
+  #   price -= ((price / 100) * discount_percentage.percentage)
+  #  elsif has_discount.money.present?
+  #    price -= has_discount.money
+  #  end
+  #  price < 0 ? 0 : price
+  #  end
+  def discount(_has_discount)
+    discount = (original_price - ((original_price / 100) * discount_percentage))
+  end
+
   def price
-    item = Item.first
+    item = Item .first
     item.price
   end
 
-  def average_price
-    Item.average_price
+  def self.average_price; end
   end
-end
